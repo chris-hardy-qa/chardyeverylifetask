@@ -86,12 +86,19 @@ class NewResidentPage extends Page {
         return $('.action-save.btn.btn-card.btn-success.ng-binding')
     }
 
-    async register (title, firstName, surname, nickname, sex) {
+    async register (title, firstName, surname, nickname, sex, dateOfBirth, socialServicesNumber, weight, height, admissionDate, address1, address2) {
         await this.title.selectByVisibleText(title);
         await this.firstName.setValue(firstName);
         await this.surname.setValue(surname);
         await this.knownAs.setValue(nickname)
         await this.sex.selectByVisibleText(sex)
+        await this.dob.setValue(dateOfBirth)
+        await this.socialServicesNumber(socialServicesNumber)
+        await this.weight(weight)
+        await this.weight(height)
+        await this.weight(admissionDate)
+        await this.weight(address1)
+        await this.weight(address2)
 
         await this.btnSave.click();
     }
