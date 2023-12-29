@@ -1,9 +1,7 @@
 const { $ } = require('@wdio/globals')
 const Page = require('./page');
 
-/**
- * sub page containing specific selectors and methods for a specific page
- */
+
 class DashboardPage extends Page {
     get navbar () {
         return $('.ng-binding.ng-scope.username');
