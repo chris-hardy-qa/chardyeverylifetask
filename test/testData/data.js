@@ -1,11 +1,14 @@
 module.exports = {
 
+    // Login details
 username: "christopherHardy134679",
 password: "8eer&w1ne",    
+
+    // User registration data
 title: "Mr",
-firstName: "Test",
-surname: "Name",
-nickname: "Testy",
+firstName: "New",
+surname: "User",
+nickname: "check",
 sex: "Male",
 dateOfBirth: "20/05/1987",
 ssn: "10",
@@ -27,7 +30,11 @@ nextOfKin: "Someone",
 nextOfKinTelephone: "07111 111112",
 doctor: "Dr Man",
 surgery: "The Surgery",
-surgeryTel: "07111 111113"
+surgeryTel: "07111 111113",
+
+    // Data for updating user status
+residentStatus: 'ACTIVE',
+residentReasonMessage: 'Test Message'    
        
     }
 

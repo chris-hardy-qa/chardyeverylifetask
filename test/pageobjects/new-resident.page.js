@@ -1,9 +1,6 @@
 const { $ } = require('@wdio/globals')
 const Page = require('./page');
-//const titleDropdown = $('#title')
-/**
- * sub page containing specific selectors and methods for a specific page
- */
+
 class NewResidentPage extends Page {
     get title () {
         const titleDropdown = $('#title')

@@ -6,6 +6,7 @@ const newResidentPage = require('../pageobjects/new-resident.page')
 const residentProfilePage = require('../pageobjects/resident-profile.page')
 const detailsPage = require('../pageobjects/details.page')
 const testData = require('../testData/data')
+const residentFilePage = require('../pageobjects/resident-file.page')
 
 describe('My Login application', () => {
 
@@ -23,13 +24,18 @@ describe('My Login application', () => {
         await expect(dashboardPage.navbar).toHaveText(testData.username)
         await dashboardPage.goToResidentsPage();
         await residentsPage.addNewResident();
-        await newResidentPage.register(testData.title, 'Test', 'Name', 'Testy', 'Male', '20/05/1987', '10', '80', '180', '20/05/2023', 'Cody Technology Park', 'Ively Rd', 'Farnborough ', 'Hampshire', 'GU14 0LX', 'UK', '0330 094 0122', 'test@everylifetechnologies.com', '07111 111111', 'Test', 'None', 'Someone', '07111 111112', 'Dr Man', 'The Surgery', '07111 111113');
-        //await expect(residentProfilePage.checkHeader).toHaveText('Mr ' + 'Test' + ' Name');
+        await newResidentPage.register(testData.title, testData.firstName, testData.surname, testData.nickname, testData.sex, testData.dateOfBirth, testData.ssn, testData.weight, testData.height, testData.admissionDate, testData.address1, testData.address2, testData.city, testData.county, testData.postcode, testData.country, testData.telephone, testData.email, testData.mobile, testData.accessDetails, testData.allergies, testData.nextOfKin, testData.nextOfKinTelephone, testData.doctor, testData.surgery, testData.surgeryTel);
+       
+    
         await residentProfilePage.openDetailsLink();
-        await detailsPage.updateStatus('ACTIVE','Test Message');
+        await detailsPage.updateStatus(testData.residentStatus, testData.residentReasonMessage);
+ 
         await dashboardPage.goToResidentsPage();
-        await residentsPage.searchForResident('Test Name')
-        await residentProfilePage.openDetailsLink();
-
+        await residentsPage.searchForResident(testData.firstName + " " + testData.surname)
+        await residentProfilePage.openResidentFileLink();
+       
+        await residentFilePage.checkDetails(testData.title, testData.firstName, testData.surname)
+        
+        
     });
 })

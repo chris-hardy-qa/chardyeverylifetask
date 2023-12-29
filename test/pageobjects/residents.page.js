@@ -1,9 +1,7 @@
 const { $ } = require('@wdio/globals')
 const Page = require('./page');
 
-/**
- * sub page containing specific selectors and methods for a specific page
- */
+
 class ResidentsPage extends Page {
     get btnAddResident () {
         return $('.action-add.btn.btn-card.btn-primary.ng-binding')
@@ -11,9 +9,11 @@ class ResidentsPage extends Page {
     get searchResidents () {
         return $('#filterTerm')
     }
-    get selectSearchResult() {
-        return $('.panel.panel-primary.ng-scope')
+    get selectSearchResults() {
+        const cards = ($$('.panel-heading.flex-heading-container')[0])
+        return (cards)
     }
+
 
 
 async addNewResident () {
@@ -22,7 +22,8 @@ async addNewResident () {
 
 async searchForResident (residentName) {
     await this.searchResidents.setValue(residentName)
-    await this.selectSearchResult.click()
+     await this.selectSearchResults.click()
+
 }
 
 }

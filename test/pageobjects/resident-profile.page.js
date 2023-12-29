@@ -1,9 +1,7 @@
 const { $ } = require('@wdio/globals')
 const Page = require('./page');
 
-/**
- * sub page containing specific selectors and methods for a specific page
- */
+
 class ResidentProfilePage extends Page {
     get checkHeader () {
         return $('.header.ng-binding')
@@ -12,10 +10,19 @@ class ResidentProfilePage extends Page {
         const btnDetails = $('=Details')
         return btnDetails
     }
+    get residentFileLink () {
+        const btnResidentFile = $('=Resident File')
+        return btnResidentFile
+    }
 
 async openDetailsLink () {
     await expect(this.detailsLink).toBeClickable();
     await this.detailsLink.click();
+}
+
+async openResidentFileLink () {
+    await expect(this.residentFileLink).toBeClickable();
+    await this.residentFileLink.click();
 }
 }
 
